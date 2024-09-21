@@ -4,6 +4,7 @@ const { readFile, writeFile } = require("fs");
 // Helper functions to read and write from a json file
 function readTasks(callback) {
   readFile('data/tasks.json', 'utf-8', (err, content) => {
+    //Error handling
     if (err) {
       console.error('Error reading file:', err);
       return;
@@ -27,7 +28,7 @@ function writeTasks(tasks, callback) {
   });
 }
 
-// Read the content of the file
+// Read the entire content of the file
 function getAllTasks() {
   readFile('data/tasks.json', "utf-8", (err, content) => {
     if (err) throw err;
@@ -36,6 +37,7 @@ function getAllTasks() {
   });
 }
 
+//condensed view
 function listTasks() {
   readTasks(tasks => {
     console.log('ALL tasks:\n', tasks);
@@ -46,6 +48,7 @@ function listTasks() {
 // Add a new task
 function addTask(task) {
   readTasks(tasks => {
+    //this id generator only works if there's no gaps, but should be sufficient here
     const id = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
     const newTask = { id, ...task, completed: false };
     tasks.push(newTask);
@@ -74,11 +77,12 @@ function completeTask(taskID) {
 // Initial instructions
 console.log("Get Array: (1)\nList Tasks: (2)\nAdd a Task: (3)\nMark task as Complete: (4)\nExit: (5)\n");
 
+//include and set up readline for user input
 const readline = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
-
 const rl = readline.createInterface({ input, output });
 
+//Handles options and input loop
 function getUserChoice() {
   rl.question('Please select an option\n', (answer) => {
     switch (answer) {
@@ -110,4 +114,5 @@ function getUserChoice() {
   });
 }
 
+//Start the program
 getUserChoice();
