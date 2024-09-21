@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Wednesday",
+    "description": "Turn in critical thinking",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "name": "Friday",
+    "task": "Finish Back-End Web II Manager",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "name": "test",
+    "description": "test1",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "name": "5",
+    "description": "6",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "name": "test1",
+    "description": "test",
+    "completed": true
+  },
+  {
+    "id": 6,
+    "name": "test",
+    "description": "test2",
+    "completed": true
+  }
+]
